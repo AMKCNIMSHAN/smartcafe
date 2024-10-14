@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cafe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('picb1.jpg'); /* Replace with your image path */
+            color: #45a049;
+            background-size: 20%;
+            background-position: right;
+            background-repeat: repeat;
+        }
+        header {
+         background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(17,136,42,1) 100%);
+            text-align: center;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            height: 100px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: rgb(255, 255, 255);
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background for content */
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .hero {
+            background-image: url('cofee.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            text-align: left;
+            color: #ffffff;
+            padding: 100px 100px;
+        }
+        .hero h1 {
+            color-scheme:#ddd ;
+            font-size: 4em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .hero button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .hero button:hover {
+            background-color: #45a049;
+        }
+        .about-section {
+            text-align: left;
+            padding: 20px;
+            background-color: #fff;
+            color: #000;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .about-section img {
+            float: right;
+            width: 300px;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+        .about-section h2 {
+            color: #4CAF50;
+        }
+        .about-section p {
+            line-height: 1.6;
+        }
+        .menu-section {
+            padding: 50px;
+        }
+        .menu-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .menu-items {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+        .menu-item {
+            text-align: center;
+        }
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+        }
+        .menu-item button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        .menu-item button:hover {
+            background-color: #45a049;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+       .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gallery-item {
+            text-align: center;
+            margin: auto;
+            flex-basis: calc(20% - 20px); /* 4 items per row with some margin */
+            box-sizing: border-box;
+            align-items: center;
+        }
+        #loc{
+            width: 100%;
+            max-width: auto;
+            height: auto;
+        }
+        button {
+
+           background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #loc{
+            transition: transform 0.3s ease;
+        }
+        #loc:hover {
+            transform: scale(0.9);
+        }
+
+.row {
+  display: -ms-flexbox; 
+  display: flex;
+  -ms-flex-wrap: wrap; 
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.img:hover {
+  border: 1px solid #777;
+  transition: transform .4s;
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.05); 
+}
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 24%;
+  padding: 0 5px;
+  align-items: center;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 75%;
+}
+
+
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 75%;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer.contact-us {
+         background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(17,136,42,1) 100%);
+    color: #fff;
+    padding: 20px 0;
+    margin-top: auto;
+    
+}
+
+.gallery3{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            display: flex;
+        }
+        .gallery-item3 {
+            text-align: center;
+            margin: auto;
+            flex-basis: calc(30% - 20px); /* 4 items per row with some margin */
+            box-sizing: border-box;
+            align-items: center;
+            position: relative;
+    overflow: hidden;
+   
+        }
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+    color: #f1f1f1; /* White text color */
+    width: 85%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.overlay:hover {
+            transform: scale(1.1);
+        }
+
+.gallery-item3:hover .overlay {
+    opacity: 1;
+}
+    </style>
+
+    <!--java taggings-->
+    <script src="jsfile.js"></script>
+    <script type="text/javascript">
+        function openNew(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+
+</head>
+<body>
+
+<header>
+    <img src="pic5.png" alt="Harithe Cafe Logo">
+    <h1><font size="8" style="font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Verdana,sans-serif;">Smart Cafe</font></h1>
+</header>
+
+<nav>
+    <a href="#index">Home</a>
+    <a href="#about">About</a>
+    <a href="#branches">Branches</a>
+    <a href="#lounge">Lounge</a>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact Us</a>
+    <a href="login page.html">Login</a>
+</nav>
+
+<div id="index" class="content">
+    <div class="hero">
+        <h1>Welcome to <br> Smart Cafe</h1>
+        <br>
+        <p>Escape to Smart Cafe,<br>
+             where every sip and bite <br>
+             transports you to a world <br>
+             of relaxation and indulgence. <br>
+               Discover the perfect blend of <br>
+               flavor, comfort, and serenity</p>
+    <button style="border: none; background: none; padding: 0; cursor: pointer;">
+        <a href="sign in.html" style="color: white; text-decoration: none; 
+        background-color: #009a50; padding: 10px 20px; border-radius: 5px;">Sign In</a>
+    </button>
+    </div>
+</div>
+
+
+<!--index section over-->
+
+
+<div id="about" class="content">
+    <div class="about-section">
+        <h2>About Smart Cafe</h2>
+        <p>Smart Cafe is one of the oldest coffee houses, known for its exceptional quality and welcoming ambiance. We have grown rapidly and now have multiple branches.</p>
+        <h3>Our Coffee Story</h3>
+        <p>Lounge is yet another venture from the Sri Lankan entrepreneur and E-Commerce Guru Dulith Herath. Harithe Lounge came into existence mainly because of his addiction to coffee, any workaholic would agree and bear witness to a condition called “Procaffeinating” the tendency to not start anything without a cup of coffee.
+
+            Lounge is a startup which was created to cater to the true authentic coffee shop experience, by emphasizing on the high-quality coffee, which we have not compromised whatever the situation we faced. The true reason for the success of Harithe Lounge is its workforce, some employees being a part of the Harithe team since its inception, we at Harithe appreciate all employees starting from the security.
+            
+            With our humble beginnings at Harithe Lounge Jawatte, throughout these five years Harithe Lounge has grown strength to strength expanding our branches to Barns Place, Nawala, Bambalapitiya, Kandy, Mount Lavinia, Nugegoda, Palawaththa, Peradeniya, Ambuluwawa, Fort, Jawaththa, Weli Park Nugegoda, and Mirihana with ideas of expanding even further to ensure that a good quality cup of coffee is just within your reach.</p>
+
+            <font><b>Vison</b> - To establish Haritha Coffee Shop as a top destination for coffee lovers and an industry
+                    leader in efficiency by developing an outstanding online presence that boosts customer
+engagement and expedites administrative procedures.<br><br>
+
+<b>Mission </b>- Our goal is to provide administrators with strong tools to manage reservations and
+the product catalogue at the same time, so that everything runs smoothly. We work to give
+customers and administrators an enjoyable and hassle-free experience through cutting-edge
+design and technology.</font>
+    </div>
+</div>
+<script type="text/javascript">
+    function openLocationMap(url) {
+            window.open(url, '_blank');
+        }
+</script>
+
+<div id="branches" class="content">
+    <div class="about-section">
+        <h2>Our Branches</h2>
+        <div class="gallery">
+        <div class="gallery-item">
+            <img src="cafe1.png" alt="Photo 1" id="loc">
+            <br>
+            <button onclick="openLocationMap('https://maps.app.goo.gl/7NsUzD2VpaekyDZH9')">One Galle Face Mall</button>
+        </div>
+        <div class="gallery-item">
+            <img src="cafe2.jpg" alt="Photo 2" id="loc">
+            <br>
+            <button onclick="openLocationMap('https://maps.app.goo.gl/o4nhir1MkyLHSjXNA')">Nugegoda</button>
+        </div>
+        <div class="gallery-item">
+            <img src="cafe3.jpg" alt="Photo 3" id="loc">
+            <br>
+            <button onclick="openLocationMap('https://maps.app.goo.gl/597LBfepQSPGNCko8')">Kandy</button>
+        </div>
+        <div class="gallery-item">
+            <img src="cafe4.png" alt="Photo 4" id="loc">
+            <br>
+            <button onclick="openLocationMap('https://maps.app.goo.gl/GyZoKePjxV46HvQK8')">Nuwara Eliya</button>
+        </div>
+        <br>
+        
+
+      
+    
+
+</div>
+  <div> <p align="center">Find a Smart Cafe near you.</p></div>
+  <div><p align="center"><font face="cursive" size="3"><b>WE SERVE YOU ON ALL<br>
+
+7 DAYS OF THE WEEK 7.00AM TO 11.30PM<br>
+
+WE ARE AVAILABLE ON UBER EATS & PICKME FOODS</b></font></p></div>
+    </div>
+</div>
+
+<div id="lounge" class="content">
+    <div class="about-section">
+        <h2>Lounge</h2>
+       <div class="row" align="center"> 
+  <div class="column">
+    <img src="images/1.jpg" style="width:100%" class="img">
+    <img src="images/2.jpg" style="width:100%"class="img">
+    <img src="images/15.jpg" style="width:100%"class="img">
+    
+ </div>
+  <div class="column">
+    <img src="images/5.jpg" style="width:100%"class="img">
+    <img src="images/6.jpg" style="width:100%"class="img">
+    <img src="images/7.jpg" style="width:100%"class="img">
+    <img src="images/8.jpg" style="width:100%"class="img">
+  </div> 
+  <div class="column">
+    <img src="images/9.png" style="width:100%"class="img">
+    <img src="images/10.jpg" style="width:100%"class="img">
+    <img src="images/11.png" style="width:100%"class="img">
+    <img src="images/12.png" style="width:100%"class="img">
+    <img src="images/4.jpg" style="width:100%"class="img">
+  </div>
+  <div class="column">
+    <img src="images/14.jpg" style="width:100%"class="img">
+    <img src="images/16.jpg" style="width:100%"class="img">
+    <img src="images/13.jpg" style="width:100%"class="img">
+    <img src="images/3.jpg" style="width:100%"class="img">
+  </div>
+</div>
+
+    </div>
+</div>
+
+
+<div id="menu" class="content">
+    <div class="about-section">
+        <h2>Menu</h2>
+       <div class="gallery3">
+        <div class="gallery-item3">
+            <img src="cofe cup.png" alt="Photo 1" id="loc" style="max-width:120%;">
+            <div class="overlay">
+                <font face="cursive"><b>Beverages</b></font>
+                <div><br>
+                <button style="border: none; background: none; padding: 0; cursor: pointer;">
+        <a href="bevragess.html" style="color: white; text-decoration: none; 
+        background-color: #009a50; padding: 10px 20px; border-radius: 5px;">Shop Now</a>
+    </button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="gallery-item3">
+            <img src="food .jpg" alt="Photo 2" id="loc">
+            <div class="overlay">
+                <font face="cursive"><b>Bakery Items</b></font>
+                <div>
+                    
+    <br>
+    <button style="border: none; background: none; padding: 0; cursor: pointer;">
+    <a href="bevragess.html" style="color: white; text-decoration: none; 
+    background-color: #009a50; padding: 10px 20px; border-radius: 5px;">Shop Now</a>
+    </button>
+            </div>
+            </div>
+            
+        </div>
+        <div class="gallery-item3">
+            <img src="images/12.png" alt="Photo 3" id="loc">
+            <div class="overlay">
+                <font face="cursive"><b>Desserts</b></font>
+                <div>
+                    
+                <br>
+    <button style="border: none; background: none; padding: 0; cursor: pointer;">
+    <a href="desserts.html" style="color: white; text-decoration: none; 
+    background-color: #009a50; padding: 10px 20px; border-radius: 5px;">Shop Now</a>
+    </button>
+            </div>
+            </div>
+            
+      </div>
+
+    </div>
+</div>
+</div>
+<br>
+<br> 
+<br>
+<footer class="contact-us">
+        <div class="row" align="center"> 
+  <div class="column">
+    <div style="padding-top: 15%;"> <img src="pic5.png" style="max-width: 100%;"></div>
+</div>
+  <div class="column">
+    <h2 id="contact">Contact Us</h2>
+   <p>If you have any questions, feel free to reach out to us!</p><br>
+    
+    <font size="4" face="arial">Call us : +94 123456789</font><br><br>
+     <font size="4" face="arial">Fax: +94 123456789</font><br><br>
+      <font size="4" face="arial">Email: abcd@gmail.com</font><br>
+  </div> 
+
+  <div class="column">
+    <a href="https://www.instagram.com/"target="_blank"> <img src="insta.png" style="max-width: 18%" id="loc"></a><br>
+    <a href="https://www.tiktok.com/" target="_blank">  <img src="tik.png" style="max-width: 15%" id="loc"></a><br>
+     <a href="https://web.whatsapp.com/" target="_blank"> <img src="wp.png" style="max-width: 13%" id="loc"></a><br>
+     <a href="https://www.facebook.com/" target="_blank"> <img src="fb.png" style="max-width: 19%" id="loc"></a><br>
+  </div>
+
+  <div class="column">
+   <div style="padding-top: 30%;"><font align="center" size="4">&COPY;</font><font face="cursive"> Copyright 2024 <b>Smart Cafe </b><br>All Rights Reserved Designed by Kavindu Chamodya</font> </div>
+  </div>
+</div>
+    </footer>
+
+
+
+</body>
+</html>
+
+<!--contact us section is over-->

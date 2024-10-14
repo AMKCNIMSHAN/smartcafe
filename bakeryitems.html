@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu-Bakery items</title>
+       <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('picb1.jpg'); /* Replace with your image path */
+            color: #45a049;
+            background-size: 20%;
+            background-position: right;
+            background-repeat: repeat;
+        }
+        header {
+            background: rgb(0,0,0);
+            background: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(17,136,42,1) 100%);
+            text-align: center;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            height: 100px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: rgb(255, 255, 255);
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background for content */
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .hero {
+            background-image: url('cofee.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            text-align: left;
+            color: #ffffff;
+            padding: 100px 100px;
+        }
+        .hero h1 {
+            color-scheme: #ddd;
+            font-size: 4em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .hero button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .hero button:hover {
+            background-color: #45a049;
+        }
+        .about-section {
+            text-align: left;
+            padding: 20px;
+            background-color: #fff;
+            color: #000;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .about-section img {
+            float: right;
+            width: 300px;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+        .about-section h2 {
+            color: #4CAF50;
+        }
+        .about-section p {
+            line-height: 1.6;
+        }
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+        .img:hover {
+            border: 1px solid #777;
+            transition: transform .4s;
+            -ms-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.05);
+        }
+        .column {
+            -ms-flex: 25%;
+            flex: 25%;
+            max-width: 24%;
+            padding: 0 5px;
+            align-items: center;
+        }
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 75%;
+        }
+        @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 75%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        footer.contact-us {
+            background: rgb(0,0,0);
+            background: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(17,136,42,1) 100%);
+            color: #fff;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+        #loc {
+            width: 100%;
+            max-width: auto;
+            height: auto;
+        }
+        #loc {
+            transition: transform 0.3s ease;
+        }
+        #loc:hover {
+            transform: scale(0.9);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gallery-item {
+            padding-top: 40px;
+            text-align: center;
+            margin: auto;
+            flex-basis: calc(20% - 20px); /* 4 items per row with some margin */
+            box-sizing: border-box;
+            align-items: center;
+            background: rgb(0,0,0);
+            background: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(17,136,42,1) 100%);
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 10px;
+        }
+        .gallery-item img {
+            width: 100%;
+            border-radius: 10px;
+            padding-bottom: 20px;
+        }
+        .gallery-item button {
+            margin-top: 10px;
+        }
+        .gallery-item .item-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            margin-top: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    .cart {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: right;
+        }
+        .pay-now {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .pay-now:hover {
+            background-color: #e04b29;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .item img {
+            width: 100px;
+            border-radius: 8px;
+        }
+        .item-title {
+            flex: 1;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .item-price {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="pic5.png" alt="Harithe Cafe Logo" class="men">
+        <h1><font size="8" style="font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Verdana,sans-serif;">Smart Cafe</font></h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#branches">Branches</a>
+        <a href="index.html#lounge">Harithe Lounge</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#contact">Contact Us</a>
+    </nav>
+    <div id="branches" class="content">
+        <div class="about-section">
+            <h2>Menu - Bakery Items</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="pic8.jpg" alt="" id="loc">
+                    <div class="item-title" class="gall">Chocolate Croissants <br>Rs.400/= </div>
+
+                    <button onclick="addToCart('Chocolate Croissants', 400)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="buri2.jpg" alt="Ice Coffee" id="loc">
+                    <div class="item-title">Veggie Baguette<br>Rs.800/=</div>
+                    <button onclick="addToCart('Veggie Baguette', 800)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="muf.jpg" alt="Ice Coffee" id="loc">
+                    <div class="item-title">Chocolate Muffin <br>Rs.350/=</div>
+                    <button onclick="addToCart('Chocolate Muffin', 350)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="Scones.png" alt="Ice Coffee" id="loc">
+                    <div class="item-title">Scones <br>Rs.400/=</div>
+                    <button onclick="addToCart('Scones', 400)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="1 ap.jpg" alt="Mix Fruit Juice" id="loc">
+                    <div class="item-title">Apple Danish pastries <br>Rs.900/=</div>
+                   <button onclick="addToCart('Apple Danish Pastries', 900)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="french-chocolate-eclairs-recipe.jpg" alt="Ice Coffee" id="loc">
+                    <div class="item-title">French Eclair <br>Rs.500/=</div>
+                    <button onclick="addToCart('French Eclair', 500)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="Sensational-Cinnamon-Rolls-CARD (1).jpg" alt="Ice Coffee" id="loc">
+                    <div class="item-title">Cinnamon Roll<br>Rs.450/=</div>
+                    <button onclick="addToCart('Cinnamon Roll', 450)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="Macarons.jpeg" alt="Ice Coffee" id="loc">
+                    <div class="item-title">Macarons 2pec <br>Rs.370/=</div>
+                    <button onclick="addToCart('Macarons 2pec', 370)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="danish-rye-bread-recipe.jpg" alt="Ice Coffee" id="loc">
+                    <div class="item-title">Rye Bread<br>Rs.1500/=</div>
+                    <button onclick="addToCart('Rye Bread', 1550)">Add to Cart</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="Focaccia-with-rosemary.jpg" alt="Peo Wine" id="loc">
+                    <div class="item-title">Focaccia<br>Rs.600/=</div>
+                    <button onclick="addToCart('Focaccia', 600)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div class="total" id="total">Total: Rs.0</div>
+        <button class="pay-now" onclick="payNow()">Pay Now</button>
+    </div>
+    <footer class="contact-us">
+        <div class="container">
+        </div>
+        <div class="row" align="center">
+            <div class="column">
+                <div style="padding-top: 15%;"> <img src="pic5.png" style="max-width: 100%;"></div>
+            </div>
+            <div class="column">
+                <h2 id="contact">Contact Us</h2>
+                <p>If you have any questions, feel free to reach out to us!</p><br>
+                <font size="4" face="arial">Call us : +94 12345678</font><br><br>
+                <font size="4" face="arial">Fax: +94 12345678</font><br><br>
+                <font size="4" face="arial">Email: harithecafee@gmail.com</font><br>
+            </div>
+            <div class="column">
+                <a href="https://www.instagram.com/" target="_blank"> <img src="insta.png" style="max-width: 18%" id="loc"></a><br>
+                <a href="https://www.tiktok.com/foryou?lang=en" target="_blank"> <img src="tik.png" style="max-width: 15%" id="loc"></a><br>
+                <a href="https://web.whatsapp.com/" target="_blank"> <img src="wp.png" style="max-width: 13%" id="loc"></a><br>
+                <a href="https://www.facebook.com/" target="_blank"> <img src="fb.png" style="max-width: 19%" id="loc"></a><br>
+            </div>
+            <div class="column">
+                <div style="padding-top: 30%;"><font align="center" size="4">&COPY;</font><font face="cursive"> Copyright 2024 <b>Smart Cafe</b><br>All Rights Reserved Designed by Kavindu Chamodya</font> </div>
+            </div>
+        </div>
+    </footer>
+
+
+     <script>
+        let cart = [];
+
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartItems = document.getElementById('cart-items');
+            const total = document.getElementById('total');
+            cartItems.innerHTML = '';
+            let totalPrice = 0;
+
+            cart.forEach((cartItem, index) => {
+                totalPrice += cartItem.price;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <span>${cartItem.item} - Rs.${cartItem.price}</span>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            total.innerHTML = `Total: Rs.${totalPrice} xHC`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            displayCart();
+        }
+
+        function payNow() {
+            if (cart.length === 0) {
+                alert("Your cart is empty. Please add items to your cart before proceeding to payment.");
+                return;
+            }
+            
+            
+
+            let totalPrice = cart.reduce((total, item) => total + item.price, 0);
+            alert(`Your total is Rs.${totalPrice} xHC,Press ok and use the next link to make your payment.`);
+            window.location.href = "payment page.html";
+        }
+    </script>
+</body>
+</html>
